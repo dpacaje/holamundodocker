@@ -7,8 +7,6 @@ services:
       - 80:5173
     volumes:
       - ./frontend/src:/app/src
-    environment:
-      VITE_API_URL: http://localhost:3000
   api:
     build: ./backend
     ports:
@@ -30,11 +28,10 @@ services:
       - db
     command: npm test
   db:
-    image: mongo:5.0.19-focal
+    image: mongo:5.0.26-focal
     ports:
       - 27017:27017
     volumes:
       - gamify:/data/db
-
 volumes:
   gamify:
